@@ -2,7 +2,7 @@ html, body {
   height: 100%;
   width: 100%;
   font-family: sans-serif;
-  text-align: center;
+  text-align: left;
 }
 
 .logo {
@@ -10,12 +10,16 @@ html, body {
 }
 
  
-.country{
-  width: 50%;
-  background: #eee;
+.bunny {
+  background: #dc3232;
   padding: 2em;
-  margin: 1em auto;
-  border-radius: 1em;
+  margin: 0em;
+  border-radius: 0em;
+
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 5px;
+  align-items: left;
 }
 
 .flag{
@@ -28,3 +32,11 @@ footer {
   margin: auto;
   padding: 3em;
 }
+
+#countries {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  align-items: left;
+}
+

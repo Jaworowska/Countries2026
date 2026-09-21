@@ -8,23 +8,29 @@ fetch('countries.json')
   let sorted = json.sort((a,b) =>  a.area - b.area  ); 
 
   
-   sorted.forEach( country => { 
+   sorted.forEach( bunny => { 
 
      // dynamically construct a url for a flag
      // based on the ISO code. 
      // https://github.com/mledoze/countries
      // 
-     let flagImage = `https://raw.githubusercontent.com/mledoze/countries/master/data/${country.cca3.toLowerCase()}.svg`
+     let flagImage = `https://raw.githubusercontent.com/mledoze/countries/master/data/${bunny.cca3.toLowerCase()}.svg`
      
     // make a div to hold each planet
     let div = document.createElement('div') 
-    div.classList.add('country')  
+    div.classList.add('bunny')  
     
     div.innerHTML = 
-      `<img class="flag" src="${flagImage}">
-      <h4>${country.name.common}</h4>
-      <p>${country.area} km²</p> 
-      <p><b>Lat/Lng</b> ${country.latlng[0]}°,${country.latlng[1]}°</p> ` 
+      `
+      <div>
+      <h4>${bunny.name.common}</h4>
+      <p>${bunny.area} km²</p> 
+      <p><b>Lat/Lng</b> ${bunny.latlng[0]}°,${bunny.latlng[1]}°</p>
+      <p><h2>${bunny.capital}</h2></p>
+      <p><b>Languages:</b>
+  ${Object.values(bunny.languages).join(', ')}</p>
+  </div>
+  <img class="flag" src="${flagImage}"> ` 
      
      document.querySelector('#countries') .appendChild(div)
   })
